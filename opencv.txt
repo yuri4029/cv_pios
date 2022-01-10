@@ -1,0 +1,34 @@
+expand filesystem
+
+raspistill -o Desktop/img2.jpg
+
+sudo snapd install cmake 
+
+snapd is a software packaging and deployment system
+this is package managers.
+
+
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+    -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-master/modules \
+    -D ENABLE_NEON=ON \
+    -D ENABLE_VFPV3=ON \
+    -D BUILD_TESTS=OFF \
+    -D WITH_TBB=OFF \
+    -D INSTALL_PYTHON_EXAMPLES=OFF \
+    -D BUILD_EXAMPLES=OFF ..
+    
+    make –j4
+    
+echo "export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python" >> ~/.bashrc
+
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then  
+    export WORKON_HOME=$HOME/.virtualenvs  
+    export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3 
+    export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv  
+    source /usr/local/bin/virtualenvwrapper.sh  
+fi  
+
+mkvirtualenv cv450 ???
+https://stackoverflow.com/questions/35216749/what-is-mkvirtualenv-command-mean-is-it-a-linux-command-or-python-command
+
